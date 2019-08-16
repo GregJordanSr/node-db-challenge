@@ -39,3 +39,7 @@ function addProject(item) {
       .insert(item)
       .then(ids => ({ id: ids[0] }));
   }
+
+//   function delete(id) {
+
+//   }

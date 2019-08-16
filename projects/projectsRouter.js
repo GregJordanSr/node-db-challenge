@@ -40,20 +40,38 @@ router.get('/resources', (req, res) => {
 
 });
 
-// router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
+    const body = req.body;
+    helper
+        .addPost(body)
+        .then((add) => {
+            res.status(201).json(add);
+        }).catch((err) => {
+            res.status(500).json({ message: "There was an error adding a project" })
+        });
+});
 
-// });
+router.post('/resources/add', (req, res) => {
+    const body = req.body;
+    helper
+        .addResource(body)
+        .then((add) => {
+            res.status(201).json(add);
+        }).catch((err) => {
+            res.status(500).json({ message: "There was an error adding a resource" })
+        });
+});
 
-// router.post('/:id', (req, res) => {
+router.post('/task/:id/', (req, res) => {
 
-// });
-
-// router.put('/:id', (req, res) => {
-
-// });
+});
 
 // router.delete('/:id', (req, res) => {
+//     const body = req.body;
+//     const { id } = req.params.id;
 
+//     helper
+//         .
 // });
 
 
