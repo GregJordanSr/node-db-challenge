@@ -46,7 +46,6 @@ exports.up = function(knex) {
         .string('notes', 4000);
     tbl
         .integer('project_id')
-        .unique()
         .notNullable()
         .unsigned()
         .references('id')
@@ -64,14 +63,13 @@ exports.up = function(knex) {
     tbl.increments();
     
     tbl
-        .string('resources_,name', 4000);
+        .string('resource_name', 4000);
 
     tbl 
         .string('resource_descript', 4000);
     
     tbl
         .integer('project_id')
-        .unique()
         .notNullable()
         .unsigned()
         .references('id')

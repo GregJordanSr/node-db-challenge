@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     
-    helper
+   return helper
     
      .getProjects()
      .then(project => {
@@ -18,23 +18,27 @@ router.get('/', (req, res) => {
      })
 });
 
-router.get('/:id/', (req, res) => {
-    
-    const {id} = req.params;
-
+router.get('/task', (req, res) => {
     helper
-    .getShoppingList(id)
-    .then((project) => {
-        res.status(200).json(project);
+    .getTask()
+    .then((task) => {
+        res.status(200).json(task);
     }).catch((err) => {
         res.status(500).json({ message: "there was error retrieving the projects" })
     });
 
 });
 
-// router.get('/', (req, res) => {
+router.get('/resources', (req, res) => {
+    helper
+    .getResources()
+    .then((resource) => {
+        res.status(200).json(resource);
+    }).catch((err) => {
+        res.status(500).json({ message: "there was error retrieving the projects" })
+    });
 
-// });
+});
 
 // router.post('/', (req, res) => {
 
